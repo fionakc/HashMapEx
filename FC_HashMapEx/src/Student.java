@@ -3,14 +3,17 @@ import java.util.ArrayList;
 public class Student {
 
 	private String name;
-	//private String course;
 	private ArrayList<String> courses=new ArrayList<>();
-	//private String grade;
 	private ArrayList<String> grades=new ArrayList<>();
 	private int id;
 	
+	public Student(String n, int i) {
+		this.name=n.trim();
+		this.id=i;
+	}
+	
 	public Student(String n, String c, String g,int i) {
-		this.name=n;
+		this.name=n.trim();
 		this.courses.add(c);
 		this.grades.add(g);
 		this.id=i;
@@ -66,6 +69,16 @@ public class Student {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public void removeCourse(String course) {
+		for(int i=0;i<courses.size();i++) {
+			if(courses.get(i).equals(course)) {
+				courses.remove(i);
+				grades.remove(i);
+				break;
+			}
+		}
 	}
 
 //	public String getCourse() {
